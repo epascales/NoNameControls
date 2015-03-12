@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="SilverlightControls.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Controls="clr-namespace:NoName.Controls;assembly=NoName.Controls" mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <ListBox ItemsSource="1234" SelectionMode="Single" >
+
+                <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Controls:ManipulableControl AllowManipulate="True"  IsSelected="{Binding Parent.Parent.Parent.IsSelected,RelativeSource={RelativeSource Self},Mode=TwoWay}" x:Name="mc" AllowResize="{Binding IsChecked,ElementName=cb_allowResize}"  >
+                        <StackPanel>
+                            <TextBlock Text="{Binding TranslateX, ElementName=mc}"/>
+                            <TextBlock Text="{Binding TranslateY, ElementName=mc}"/>
+                            <TextBox Text="{Binding Width, ElementName=mc,Mode=TwoWay}"/>
+                            <TextBlock Text="{Binding Height, ElementName=mc}"/>
+                        </StackPanel>
+                    </Controls:ManipulableControl>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel VerticalAlignment="Bottom">
+            <CheckBox  x:Name="cb" />
+            <CheckBox x:Name="cb_allowResize" />
+        </StackPanel>
+    </Grid>
+</UserControl>
