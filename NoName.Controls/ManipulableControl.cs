@@ -213,7 +213,6 @@ namespace NoName.Controls
 			}
 
 			base.OnMouseLeftButtonDown(e);
-			e.Handled = true;
 		}
 
 		protected void OnManipulationStarting()
